@@ -312,7 +312,6 @@ function crearusuario(){
     let regnombre = document.getElementById("reg-nombre").value;
     let regapellido = document.getElementById("reg-apellido").value;
     let regdireccion = document.getElementById("reg-direccion").value;
-    let regrut = document.getElementById("reg-rut").value;
     alert(regcorreo);
 }
 
