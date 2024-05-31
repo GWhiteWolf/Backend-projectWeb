@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!--Carga hoja de css-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'style.css'%}">
 
     <!--Carga de iconos-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
@@ -21,7 +22,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>House of Vaper</title>
-    <link rel="icon" type="text/css" href="img/logo-pequeño.png">
+    <link rel="icon" type="text/css" href= "{% static 'img/logo-pequeño.png' %}"> 
 
     <title>House of Vaper</title>
 </head>
@@ -29,7 +30,7 @@
     <header>
         <div class="header-container">
             <div class="header-div">
-                <img src="img/logo.png" alt="House of Vape" id="header-logo">
+                <img src="{% static 'img/logo.png' %}" alt="House of Vape" id="header-logo">
             </div>
             <div class="header-div2">
                 <div class="texto-boton" id="header-nav">
@@ -44,7 +45,7 @@
             </div>
             <div class="header-div3" id="header-icons">
                 <a class="a-unestyled-imgs-usuario" href="#session"> <!--Ruta a la que lleva el icono-->
-                    <img id="usuario-img" src="img/usuario.png" alt="icono-cuenta">
+                    <img id="usuario-img" src="{% static 'img/usuario.png' %}" alt="icono-cuenta">
                 </a>
             </div>
         </div>
@@ -53,7 +54,7 @@
     <!--verificacion de mayoria de edad-->
     <section class="modal">
         <div class="modal_container">
-            <img src="img/logo.png" alt="logo">
+            <img src="{% static 'img/logo.png' %}" alt="logo">
             <h4 class="modal_title">¡Bienvenido a House of Vaper!</h4>
             <p class="modal_paragraph">Debes ser mayor de 18 años para comprar en nuestra tienda.</p>
             <p class="modal_paragraph">¿Eres mayor de 18 años?</p>
@@ -69,7 +70,7 @@
             <div class="modal--header">
                 <div class="div-registro" id="div-registroheader-exit">
                     <a class="a-unestyled-imgs-usuario" href="#salirbutton1">
-                        <img src="img/exitbutton.png" alt="" id="exiticon"> 
+                        <img src="{% static 'img/exitbutton.png' %}" alt="" id="exiticon">   
                     </a>
                 </div>
             </div>
@@ -100,7 +101,7 @@
             <div class="modal--header">
                 <div class="div-registro" id="div-registroheader-exit">
                     <a class="a-unestyled-imgs-usuario" href="#salirbutton2">
-                        <img src="img/exitbutton.png" alt="" id="exiticon"> 
+                        <img src="{% static 'img/exitbutton.png' %}" alt="" id="exiticon"> 
                     </a>
                 </div>
             </div>
@@ -133,7 +134,7 @@
             <div class="modal--header">
                 <div class="div-registro" id="div-registroheader-exit">
                     <a class="a-unestyled-imgs-usuario" href="#salirbutton3">
-                        <img src="img/exitbutton.png" alt="boton-salir" id="exiticon"> 
+                        <img src="{% static 'img/exitbutton.png' %}" alt="boton-salir" id="exiticon"> 
                     </a>
                 </div>
             </div>
@@ -144,7 +145,7 @@
                 </div>
                 <div class="container mt-3">
                     <div class="text-center">
-                        <img class="modal--body-img" src="img/user.png" alt="">
+                        <img class="modal--body-img" src="{% static 'img/user.png' %}" alt="">
                     </div>
                     <form action="/index.html" method="get">
                         <div class="mb-3 mt-3">
@@ -154,7 +155,7 @@
                             <input type="text" class="form-control" id="reg-apellido" placeholder="Apellido" name="apellido" required>
                         </div>
                         <div class="mb-3 mt-3">
-                            <input type="text" class="form-control" id="reg-direccion" placeholder="Direccion" name="direccion" required>
+                            <input type="text" class="form-control" id="reg-direccion" placeholder="Dirección" name="direccion" required>
                         </div>
                         <div class="mb-3 mt-3">
                             <input type="text" class="form-control" id="reg-rut" placeholder="Rut" name="rut" required>
@@ -187,19 +188,19 @@
                     </p>
                     <div class="iconos">
                         <a class="a-unestyled-imgs" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-                            <img src="img/telefono.png" alt="telefono">
+                            <img src="{% static 'img/telefono.png' %}" alt="telefono">
                         </a>
                         <a class="a-unestyled-imgs" href="https://www.google.com/intl/es-419/gmail/about/" target="_blank">
-                            <img src="img/email.png" alt="email">
+                            <img src="{% static 'img/email.png' %}" alt="email">
                         </a>
                         <a class="a-unestyled-imgs" href="https://www.instagram.com/" target="_blank">
-                            <img src="img/instagram.png" alt="instagram">
+                            <img src="{% static 'img/instagram.png' %}" alt="instagram">
                         </a>
                         <a class="a-unestyled-imgs" href="https://twitter.com/?lang=es" target="_blank">
-                            <img src="img/twitter.png" alt="twitter">
+                            <img src="{% static 'img/twitter.png' %}" alt="twitter">
                         </a>
                         <a class="a-unestyled-imgs" href="#seccion-producto">
-                            <img src="img/ver-productos.png" alt="ver-productos">
+                            <img src="{% static 'img/ver-productos.png' %}" alt="ver-productos">
                         </a>
                     </div>
         </div>
@@ -212,15 +213,15 @@
                 <div class="carousel-inner"><!--tipo de carruzel-->
         
                     <div class="carousel-item active"><!--imagen 1-->
-                        <img src="img/klipartz-amarillo.png" class="d-block w-100" alt="...">
+                        <img src="{% static 'img/klipartz-amarillo.png' %}" class="d-block w-100" alt="...">  
                     </div>
         
                     <div class="carousel-item"><!--imagen 2-->
-                        <img src="img/klipartz-negro.png" class="d-block w-100" alt="...">
+                        <img src="{% static 'img/klipartz-negro.png' %}" class="d-block w-100" alt="...">
                     </div>
         
                     <div class="carousel-item"><!--imagen 3-->
-                        <img src="img/klipartz-rosa.png" class="d-block w-100" alt="...">
+                        <img src="{% static 'img/klipartz-rosa.png' %}" class="d-block w-100" alt="...">
                     </div>
         
                 </div>
@@ -244,23 +245,23 @@
         </p>
         <h5>Nos comprometemos a brindarte una experiencia de vapeo inigualable. </h5>
         <a href="#sobre-nosotros">
-            <img src="img/flecha.png" alt="flecha">
+            <img src="{% static 'img/flecha.png' %}" alt="flecha"> 
         </a>
     </div>
 
     <div class="seccion-2" id="sobre-nosotros"> <!--sección de introducción-->
         <div class="seccion-2-imagen">
-            <img src="img/mujeres-vapeando.png" alt="mujeres-vapeando">
+            <img src="{% static 'img/mujeres-vapeando.png' %}" alt="mujeres-vapeando"> 
         </div>
         <div class="seccion-2-texto">
-            <img src="img/sobre-nosotros.png" alt="sobre-nosotros">
+            <img src="{% static 'img/sobre-nosotros.png' %}" alt="sobre-nosotros">
             <p>
                 En nuestra empresa de venta de vapers, nos regimos por valores de excelencia, innovación y compromiso con nuestros clientes. Nos enorgullece asegurar la calidad en cada producto que ofrecemos, seleccionando solo los dispositivos más avanzados y los líquidos más deliciosos. <br>
                 <br>
                 Nuestro equipo está dedicado a proporcionarte una experiencia de vapeo inigualable, respaldada por un servicio al cliente excepcional y una pasión por la satisfacción del cliente. Únete a nosotros en nuestra misión de elevar el estándar del vapeo y descubre una nueva dimensión de placer y calidad.
             </p>
             <a href="#informaciones"> <!--Ruta saber más-->
-                <img src="img/saber-mas.png" alt="saber-mas">
+                <img src="{% static 'img/saber-mas.png' %}" alt="saber-mas">
             </a>
         </div>
     </div>
@@ -276,12 +277,12 @@
             </h5>
 
         </div>
-        <img src="img/vape-1.png" alt="vape-1" class="item-destacado-1">
+        <img src="{% static 'img/vape-1.png' %}" alt="vape-1" class="item-destacado-1">
     </div>
 
     <div class="seccion-producto" id="seccion-producto">
         <div class="contenedor-logo">
-            <img id="logo-p" src="img/logo-pequeño.png" alt="logo-pequeño">
+            <img id="logo-p" src="{% static 'img/logo-pequeño.png' %}" alt="logo-pequeño">
             <h2 class="titulo">PRODUCTOS</h2>
         </div>
         <div class="contenedor-compras">
@@ -292,7 +293,7 @@
                         <div class="col-md-4">
                             <div class="card d-flex flex-column align-items-center justify-content-center">
                                 <div class="card-body">
-                                    <img src="img/producto-1.png" class="card-img-top" alt="Producto 1">
+                                    <img src="{% static 'img/producto-1.png' %}" class="card-img-top" alt="Producto 1">
                                     <h5 class="card-title">Producto 1</h5>
                                     <p class="card-text">$ 39.900</p>
                                     <button class="button-item">Agregar al Carrito</button>
@@ -304,7 +305,7 @@
                         <div class="col-md-4">
                             <div class="card d-flex flex-column align-items-center justify-content-center">
                                 <div class="card-body">
-                                    <img src="img/producto-2.png" class="card-img-top" alt="Producto 2">
+                                    <img src="{% static 'img/producto-2.png' %}" class="card-img-top" alt="Producto 2">
                                     <h5 class="card-title">Producto 2</h5>
                                     <p class="card-text">$ 44.900</p>
                                     <button class="button-item">Agregar al Carrito</button>
@@ -316,7 +317,7 @@
                         <div class="col-md-4">
                             <div class="card d-flex flex-column align-items-center justify-content-center">
                                 <div class="card-body">
-                                    <img src="img/producto-3.png" class="card-img-top" alt="Producto 3">
+                                    <img src="{% static 'img/producto-3.png' %}" class="card-img-top" alt="Producto 3">
                                     <h5 class="card-title">Producto 3</h5>
                                     <p class="card-text">$ 47.900</p>
                                     <button class="button-item">Agregar al Carrito</button>
@@ -332,7 +333,7 @@
                         <div class="col-md-4">
                             <div class="card d-flex flex-column align-items-center justify-content-center">
                                 <div class="card-body">
-                                    <img src="img/producto-4.png" class="card-img-top" alt="Producto 4">
+                                    <img src="{% static 'img/producto-4.png' %}" class="card-img-top" alt="Producto 4">
                                     <h5 class="card-title">Producto 4</h5>
                                     <p class="card-text">$ 32.900</p>
                                     <button class="button-item">Agregar al Carrito</button>
@@ -344,7 +345,7 @@
                         <div class="col-md-4">
                             <div class="card d-flex flex-column align-items-center justify-content-center">
                                 <div class="card-body">
-                                    <img src="img/producto-5.png" class="card-img-top" alt="Producto 5">
+                                    <img src="{% static 'img/producto-5.png' %}" class="card-img-top" alt="Producto 5">
                                     <h5 class="card-title">Producto 5</h5>
                                     <p class="card-text">$ 29.000</p>
                                     <button class="button-item">Agregar al Carrito</button>
@@ -356,7 +357,7 @@
                         <div class="col-md-4">
                             <div class="card d-flex flex-column align-items-center justify-content-center">
                                 <div class="card-body">
-                                    <img src="img/producto-6.png" class="card-img-top" alt="Producto 6">
+                                    <img src="{% static 'img/producto-6.png' %}" class="card-img-top" alt="Producto 6">
                                     <h5 class="card-title">Producto 6</h5>
                                     <p class="card-text">$ 39.900</p>
                                     <button class="button-item">Agregar al Carrito</button>
@@ -430,7 +431,7 @@
 
 
     <div class="producto-destacado">  
-        <img src="img/vape-2.png" alt="vape-2" class="item-destacado-2">
+        <img src="{% static 'img/vape-2.png' %}" alt="vape-2" class="item-destacado-2">
         <div class="cuadro-detalle">
             <h4>
                 Presentamos nuestro modelo compacto de vaper con pantalla.
@@ -445,7 +446,7 @@
 
     <div class="seccion-informaciones" id="informaciones"> <!--sección de informaciones-->
         <div class="seccion-info-texto">
-            <img src="img/informaciones.png" alt="informaciones">
+            <img src="{% static 'img/informaciones.png' %}" alt="informaciones">
             <p>
                 Nuestra empresa, líder en el mundo del vapeo con presencia en múltiples ubicaciones  
                 para servirte mejor. <br>
@@ -458,17 +459,17 @@
                 productos de la más alta calidad y las últimas tecnologías.
             </p>
             <a href="https://www.childrensmn.org/educationmaterials/teens/article/14772/vapear-lo-que-necesitas-saber/" target="_blank"> <!--Ruta saber más-->
-                <img src="img/saber-mas-t.png" alt="saber-mas">
+                <img src="{% static 'img/saber-mas-t.png' %}" alt="saber-mas">
             </a>
         </div>
         <div class="seccion-info-imagen">
-            <img src="img/mujeres-vapeando-2.png" alt="mujeres-vapeando">
+            <img src="{% static 'img/mujeres-vapeando-2.png' %}" alt="mujeres-vapeando">
         </div>
     </div>
 
     <div class="comentario-destacado" id="comentario-destacado"> 
         <div class="cuadro-detalle">
-            <img src="img/perfil-mujer.png" alt="perfil-mujer">
+            <img src="{% static 'img/perfil-mujer.png' %}" alt="perfil-mujer">
             <h5>
                 "¡Estoy encantada con mi vaper de House of Vape! La calidad es increíble y el sabor
                 que ofrece es simplemente delicioso. Además, es súper fácil de usar y me encanta lo 
@@ -494,26 +495,26 @@
         <div class="seccion-final">
             <div class="icono-final">
                 <a class="a-unestyled-imgs" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-                    <img src="img/telefono.png" alt="telefono">
+                    <img src="{% static 'img/telefono.png' %}" alt="telefono">
                 </a>
                 <a class="a-unestyled-imgs" href="https://www.google.com/intl/es-419/gmail/about/" target="_blank">
-                    <img src="img/email.png" alt="email">
+                    <img src="{% static 'img/email.png' %}" alt="email">
                 </a>
                 <a class="a-unestyled-imgs" href="https://www.instagram.com/" target="_blank">
-                    <img src="img/instagram.png" alt="instagram">
+                    <img src="{% static 'img/instagram.png' %}" alt="instagram">
                 </a>
                 <a class="a-unestyled-imgs" href="https://twitter.com/?lang=es" target="_blank">
-                    <img src="img/twitter.png" alt="twitter">
+                    <img src="{% static 'img/twitter.png' %}" alt="twitter">
                 </a>
             </div>
             
             <div class="logo-final">
-                <img src="img/logo.png" alt="House of Vape">
+                <img src="{% static 'img/logo.png' %}" alt="House of Vape">
             </div>
             <div class="seccion-suscribir">
                 <input type="email" class="form-control" id="subs-email" placeholder="Juan@gmail.com" name="email" required>
                 <a href="#subbtt"> <!--Ruta a la que lleva el icono-->
-                    <img src="img/suscribirse.png" alt="icono-cuenta">
+                    <img src="{% static 'img/suscribirse.png' %}" alt="icono-cuenta">
                 </a>
             </div>
         </div>
@@ -523,6 +524,6 @@
             </p>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="{% static 'script.js'%}"></script>
 </body>
 </html>
