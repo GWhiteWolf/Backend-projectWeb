@@ -3,9 +3,10 @@ from django.db import models
 class Producto(models.Model):
     id_producto = models.AutoField(primary_key=True)
     nombre      = models.CharField(max_length=100)
-    color = models.CharField(max_length=50, null=True, blank=True)
     descripcion = models.TextField()
     precio      = models.DecimalField(max_digits=10, decimal_places=2)
+    color       = models.CharField(max_length=50, null=True, blank=True)
+    imagen      = models.ImageField(upload_to='productos/', default='productos/producto-1.png')
 
     def __str__(self):
         return self.nombre

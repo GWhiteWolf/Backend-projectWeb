@@ -107,14 +107,16 @@ function ocultarCarrito(){
     var carritoItems = document.getElementsByClassName('carrito-items')[0];
     if(carritoItems.childElementCount == 0){
         var carrito = document.getElementsByClassName('carrito')[0];
-        carrito.style.marginRight = '-100%';
         carrito.style.opacity = '0';
+        carrito.style.visibility = 'hidden';
         carritoVisible = false;
-
+        
         var items = document.getElementsByClassName('contenedor-productos')[0];
-        items.style.width = '100%'
+        items.style.width = '100%';
     }
 }
+
+
 
 function sumarCantidad(event){
     var buttonCliked = event.target;
