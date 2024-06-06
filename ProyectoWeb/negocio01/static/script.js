@@ -108,8 +108,8 @@ function ocultarCarrito(){
     if(carritoItems.childElementCount == 0){
         var carrito = document.getElementsByClassName('carrito')[0];
         carrito.style.opacity = '0';
-        carrito.style.visibility = 'hidden';
         carritoVisible = false;
+        carrito.style.display = 'none';
         
         var items = document.getElementsByClassName('contenedor-productos')[0];
         items.style.width = '100%';

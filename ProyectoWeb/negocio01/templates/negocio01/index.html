@@ -79,7 +79,7 @@
                 <h4 class="modal_title">¡CONTÁCTANOS!</h4>   
             </div>
             <div class="container mt-3">
-                <form action="/index.html" method="get">
+                <form action="{% url 'index' %}" method="get">
                     <div class="mb-3 mt-3">
                         <input type="email" class="form-control" id="cont-email" placeholder="Ingrese su correo" name="email" required>
                         <input type="text" class="form-control mt-3" placeholder="Asunto" name="asunto" required>
@@ -110,7 +110,7 @@
                     <h4 class="modal_title">Iniciar Sesión</h4>  
                 </div>
                 <div class="container mt-3">
-                    <form action="/index.html" method="get">
+                    <form action="{% url 'index' %}" method="get">
                         <div class="form-floating mb-3 mt-3">
                             <input type="email" class="form-control" id="ini-email" placeholder="Ingresa Correo" name="email" required>
                             <label for="ini-email">Correo</label>
@@ -147,7 +147,7 @@
                     <div class="text-center">
                         <img class="modal--body-img" src="{% static 'img/user.png' %}" alt="">
                     </div>
-                    <form action="/index.html" method="get">
+                    <form action="{% url 'index' %}" method="get">
                         <div class="mb-3 mt-3">
                             <input type="text" class="form-control" id="reg-nombre" placeholder="Nombre" name="nombre" required>
                         </div>
@@ -500,8 +500,8 @@
         <div>
             <nav class="texto-boton">
                 <a class="a-unestyled" href="#inicio-destacados" >INICIO</a>
-                <a class="a-unestyled" href="#seccion-producto" >TIENDA</a>
                 <a class="a-unestyled" href="#sobre-nosotros" >NOSOTROS</a>
+                <a class="a-unestyled" href="#seccion-producto" >TIENDA</a>
                 <a class="a-unestyled" href="#informaciones" >INFORMACIONES</a>
             </nav>
         </div>
