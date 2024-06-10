@@ -4,8 +4,7 @@ class Producto(models.Model):
     id_producto = models.AutoField(primary_key=True)
     nombre      = models.CharField(max_length=100)
     descripcion = models.TextField()
-    precio      = models.DecimalField(max_digits=10, decimal_places=2)
-    color       = models.CharField(max_length=50, null=True, blank=True)
+    precio      = models.IntegerField()
     imagen      = models.ImageField(upload_to='productos/', default='productos/producto-1.png')
 
     def __str__(self):
@@ -32,5 +31,23 @@ class MensajeContacto(models.Model):
 
     def __str__(self):
         return self.asunto    
+    
+class Orden(models.Model):
+    id_orden = models.AutoField(primary_key=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    fecha = models.DateTimeField(auto_now_add=True)
+    total = models.IntegerField()
+
+    def __str__(self):
+        return f'Orden {self.id_orden} - {self.usuario}'
+
+class OrdenItem(models.Model):
+    id_orden_item = models.AutoField(primary_key=True)
+    orden = models.ForeignKey(Orden, related_name='items', on_delete=models.CASCADE)
+    producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    precio = models.IntegerField()
+    def __str__(self):
+        return f'{self.cantidad} x {self.producto.nombre} en Orden {self.orden.id_orden}'
     
 
