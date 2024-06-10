@@ -1,2 +1,5 @@
-from .models import Producto, Usuario, MensajeContacto, Orden, OrdenItem
+from .models import Producto, Usuario, MensajeContacto, Venta, DetalleVenta
+
+# Register your models here.
+
 

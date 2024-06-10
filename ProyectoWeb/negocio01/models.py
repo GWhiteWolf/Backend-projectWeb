@@ -32,7 +32,7 @@ class MensajeContacto(models.Model):
     def __str__(self):
         return self.asunto    
     
-class Orden(models.Model):
+class Venta(models.Model):
     id_orden = models.AutoField(primary_key=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     fecha = models.DateTimeField(auto_now_add=True)
@@ -41,9 +41,8 @@ class Orden(models.Model):
     def __str__(self):
         return f'Orden {self.id_orden} - {self.usuario}'
 
-class OrdenItem(models.Model):
-    id_orden_item = models.AutoField(primary_key=True)
-    orden = models.ForeignKey(Orden, related_name='items', on_delete=models.CASCADE)
+class DetalleVenta(models.Model):
+    orden = models.ForeignKey(Venta, related_name='items', on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField()
     precio = models.IntegerField()
