@@ -12,6 +12,8 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=100)
     precio = models.IntegerField()
     imagen = models.ImageField(upload_to='productos/', default='productos/producto-1.png')
+    color = models.CharField(max_length=30, blank=True, null=True)
+    descripcion = models.TextField(max_length=200, blank=True, null=True)
     id_marca = models.ForeignKey(Marca, on_delete=models.CASCADE, db_column='idMarca')
 
     def __str__(self):
