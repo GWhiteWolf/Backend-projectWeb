@@ -29,13 +29,13 @@
                 <th>Eliminar</th>
                 <th>Editar</th>
             {% for producto in productos %}
-                <th>
+                <tr>
                     <td>{{producto.id_producto}}</td>
                     <td>{{producto.nombre}}</td>
                     <td>{{producto.precio}}</td>
-                    <td> <a href="{% url 'productos_del' pk=producto.id_producto}">Eliminar</a></td>
+                    <td><a href="{% url 'productos_del' pk=producto.id_producto %}">Eliminar</a></td>
                     <td> <a href="{% url 'productos_findEdit' pk=producto.id_producto %}">Editar</a></td>
-                </th>
+                </tr>
             {% endfor %}
         {% endif %}
     </table>

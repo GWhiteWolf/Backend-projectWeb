@@ -7,8 +7,31 @@
 </head>
 <body>
     <div style=" text-align: center;">
-        <h2>Formulario CRUD para Productos</h2>
+        <h2>Formulario CRUD para Productos</h2><br>
+        <form action="productosAdd" method="POST">
 
+            {% csrf_token %}
+            <pre>Nombre:      <input type="text" name="nombre"></pre>
+            <pre>Precio:      <input type="number" name="precio"></pre>
+            <pre>Imagen:      <input type="file" name="imagen" accept="imagen/*"></pre>
+            <pre>Color:       <input type="text" name="color"></pre>
+            <pre>Descripción: <textarea name="descripcion" rows="4" cols="50"></textarea></pre>
+            <pre>Marca:
+                <select name="id_marca">
+                    {% for marca in marcas %}
+                    <option value="{{ marca.id_marca }}">{{ marca.marca }}</option>
+                    {% endfor %}
+                </select>
+            </pre>
+            <input type="submit" name="opcion" value="Agregar">
+        </form><br><br>
+        <a href="{% url 'crud' %}">Volver</a>
+        <br>
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{ mensaje }}
+            {% endif %}
+        </div>
     </div>
 </body>
 </html>
