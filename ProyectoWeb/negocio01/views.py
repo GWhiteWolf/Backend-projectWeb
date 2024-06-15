@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect
 from .models import Producto, Marca
-
+from django.contrib.auth.decorators import login_required
 from .forms import MarcaForm
 
 # Create your views here.
@@ -16,11 +16,13 @@ def crud(request):
     context = {'productos': productos}
     return render(request, 'negocio01/productos_list.html', context)
 
+@login_required
 def menu(request):
-    request.session['usuario'] = 'Juan'
-    usuario = request.session['usuario']
-    context = {'usuario': usuario}
-    return render(request, 'administrador/menu.html', context)
+    request.session['usuario'] = 'Juan'  
+    usuario = request.session['usuario']  
+    context = {'usuario': usuario} 
+    return render(request, 'negocio01/index.html', context)
+
 
 def productosAdd(request):
     if request.method != "POST":
