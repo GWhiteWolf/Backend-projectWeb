@@ -47,8 +47,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4">
 
-                    {% if usuario %}
-                        {{ usuario }}
+                    {% if user.is_authenticated %}
+                        {{ user.username }}
                     {% else %}
                         Log in
                     {% endif %}

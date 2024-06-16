@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .models import Producto, Marca
 from django.contrib.auth.decorators import login_required
-from .forms import MarcaForm
+from django.contrib.auth import login, authenticate
+from django.contrib import messages
+from .forms import MarcaForm, UserRegistrationForm
 
 # Create your views here.
 
@@ -18,10 +20,30 @@ def crud(request):
 
 @login_required
 def menu(request):
-    request.session['usuario'] = 'Juan'  
-    usuario = request.session['usuario']  
-    context = {'usuario': usuario} 
+    usuario = request.user
+    context = {'usuario': usuario}
     return render(request, 'negocio01/index.html', context)
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            user_profile = user.userprofile
+            user_profile.direccion = form.cleaned_data.get('direccion')
+            user_profile.save()
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            messages.success(request, 'User registered successfully.')
+            return redirect('index')
+        else:
+            messages.error(request, 'Please correct the errors below.')
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'registration/register.html', {'form': form})
 
 
 def productosAdd(request):
