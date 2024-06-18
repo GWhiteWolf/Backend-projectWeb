@@ -16,4 +16,5 @@ urlpatterns = [
     path('marcas_edit/<str:pk>/', views.marcas_edit, name='marcas_edit'),
 
     path('register/', views.register, name='register'),
+    
 ]

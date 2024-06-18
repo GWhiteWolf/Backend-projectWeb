@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from .forms import MarcaForm, UserRegistrationForm
+from django.contrib.auth import views as auth_views
+
 
 # Create your views here.
 
@@ -25,6 +27,7 @@ def menu(request):
     return render(request, 'negocio01/index.html', context)
 
 
+
 def register(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -37,10 +40,10 @@ def register(request):
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             login(request, user)
-            messages.success(request, 'User registered successfully.')
+            messages.success(request, 'Usuario registrado correctamente. Bienvenido!')
             return redirect('index')
         else:
-            messages.error(request, 'Please correct the errors below.')
+            messages.error(request, 'Error al registrar usuario. Intente nuevamente.')
     else:
         form = UserRegistrationForm()
     return render(request, 'registration/register.html', {'form': form})
