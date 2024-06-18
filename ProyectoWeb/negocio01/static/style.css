@@ -601,6 +601,7 @@ body {
     gap: 1em;
     grid-auto-columns: 100%;
 }
+
 /* VENTANA MODAL 2*/
 .modal2 {
     z-index: 999;

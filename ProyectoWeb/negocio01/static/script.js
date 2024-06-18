@@ -259,49 +259,55 @@ salirbuttonLink1.addEventListener('click', (e) => {
 
 
 
-/*inicio del form de ingresar*/
+/*
+    inicio del form de ingresar
 
-const usuariolink = document.querySelector('a[href="#session"]');/*almacena en una variable el link de iniciar session*/
-const modal2 = document.querySelector('.modal2');/*almacena en una variable la clase modal2*/
-const salirbuttonLink2 = document.querySelector('a[href="#salirbutton2"]');/*almacena en una variable el link del icono de salir*/
+    const usuariolink = document.querySelector('a[href="#session"]'); // almacena en una variable el link de iniciar session
+    const modal2 = document.querySelector('.modal2'); // almacena en una variable la clase modal2
+    const salirbuttonLink2 = document.querySelector('a[href="#salirbutton2"]'); // almacena en una variable el link del icono de salir
 
-usuariolink.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal2.classList.add('modal2--show');
-});/*al hacer click en la imagen de usuario se abre el form de inicio de sesión*/
-salirbuttonLink2.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal2.classList.remove('modal2--show');
-});/*al hacer click en la x cierra el form de inicio de sesion*/
+    usuariolink.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal2.classList.add('modal2--show');
+    }); // al hacer click en la imagen de usuario se abre el form de inicio de sesión
+    salirbuttonLink2.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal2.classList.remove('modal2--show');
+    }); // al hacer click en la x cierra el form de inicio de sesion
 
-/*fin del form de ingresar*/
-
-
-
+    fin del form de ingresar
+*/
 
 
-/*inicio del form de registrarse*/
 
-const registratelink = document.querySelector('a[href="#registrarse"]');/*almacena en una variable el link de registrarse*/
-const modal3 = document.querySelector('.modal3');/*almacena en una variable la clase modal3*/
-const salirbuttonLink3 = document.querySelector('a[href="#salirbutton3"]');/*almacena en una variable el link del icono de salir*/
-const tinescuentalink = document.querySelector('a[href="#session1"');
-registratelink.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal2.classList.remove('modal2--show');
-    modal3.classList.add('modal3--show');
-});/*al hacer click sobre registrarse cierra el form de inicio de sesion y abre el form de registrarse*/
-salirbuttonLink3.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal3.classList.remove('modal3--show');
-});/*al hacer click sobre la x del form de registrarse cierra el form de registrarse*/
-tinescuentalink.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal3.classList.remove('modal3--show');
-    modal2.classList.add('modal2--show');
-});
 
-/*fin del form de registro*/
+/*
+    inicio del form de registrarse
+
+    const registratelink = document.querySelector('a[href="#registrarse"]'); // almacena en una variable el link de registrarse
+    const modal3 = document.querySelector('.modal3'); // almacena en una variable la clase modal3
+    const salirbuttonLink3 = document.querySelector('a[href="#salirbutton3"]'); // almacena en una variable el link del icono de salir
+    const tinescuentalink = document.querySelector('a[href="#session1"]');
+    
+    registratelink.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal2.classList.remove('modal2--show');
+        modal3.classList.add('modal3--show');
+    }); // al hacer click sobre registrarse cierra el form de inicio de sesion y abre el form de registrarse
+    
+    salirbuttonLink3.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal3.classList.remove('modal3--show');
+    }); // al hacer click sobre la x del form de registrarse cierra el form de registrarse
+    
+    tinescuentalink.addEventListener('click', (e) => {
+        e.preventDefault();
+        modal3.classList.remove('modal3--show');
+        modal2.classList.add('modal2--show');
+    });
+
+    fin del form de registro
+*/
 
 
 

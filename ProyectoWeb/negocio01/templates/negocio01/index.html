@@ -43,6 +43,28 @@
                     </nav>
                 </div>
             </div>
+            
+            <ul class="nav-item dropdown">
+                {% if user.is_authenticated %}
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ user.username }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                        {% if perms.negocio01.add_producto or perms.negocio01.change_producto or perms.negocio01.delete_producto %}
+                            <li><a class="dropdown-item" href="{% url 'crud' %}">CRUD Productos</a></li>
+                        {% endif %}
+                        {% if perms.negocio01.add_marca or perms.negocio01.change_marca or perms.negocio01.delete_marca %}
+                            <li><a class="dropdown-item" href="{% url 'crud_marcas' %}">CRUD Marcas</a></li>
+                        {% endif %}
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>
+                    </ul>
+                {% else %}
+                    <a class="nav-link" href="{% url 'login' %}">Iniciar Sesión</a>
+                {% endif %}
+            </ul>
+
+            
             <div class="header-div3" id="header-icons">
                 <a class="a-unestyled-imgs-usuario" href="#session"> <!--Ruta a la que lleva el icono-->
                     <img id="usuario-img" src="{% static 'img/usuario.png' %}" alt="icono-cuenta">
@@ -95,39 +117,27 @@
         </div>
     </section>
 
-    <!--form de iniciar seccion-->
-    <section class="modal2">
-        <div class="modal2_container">
-            <div class="modal--header">
-                <div class="div-registro" id="div-registroheader-exit">
-                    <a class="a-unestyled-imgs-usuario" href="#salirbutton2">
-                        <img src="{% static 'img/exitbutton.png' %}" alt="" id="exiticon"> 
-                    </a>
+    <!--form de iniciar seccion
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-            </div>
-            <div class="modal--body">
-                <div class="div-registro" id="div-registroheader-text">
-                    <h4 class="modal_title">Iniciar Sesión</h4>  
-                </div>
-                <div class="container mt-3">
-                    <form action="{% url 'index' %}" method="get">
-                        <div class="form-floating mb-3 mt-3">
-                            <input type="email" class="form-control" id="ini-email" placeholder="Ingresa Correo" name="email" required>
-                            <label for="ini-email">Correo</label>
-                        </div>
-                        <div class="form-floating mt-3 mb-3">
-                            <input type="password" class="form-control" id="pwd" placeholder="Ingresa Contraseña" name="pswd" required>
-                            <label for="pwd">Contraseña</label>
-                        </div>
-                        <button type="submit" class="btn-primary" id="btn-iniciar-sesion">Iniciar Sesión</button>
-                        <p class="text-caption">¿No tienes cuenta registrate? <a class="a-unestyled-2" href="#registrarse">Registrarse</a> </p>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                     </form>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+    -->
 
-    <!--form de registro-->
+    <!--form de registro
     <section class="modal3">
         <div class="modal3_container">
             <div class="modal--header">
@@ -170,7 +180,7 @@
             </div>
         </div>
     </section>
-
+    -->
 
     <div class="fondo" id="inicio-destacados">
         <div class="div-50" id="text-carousel">
@@ -379,8 +389,6 @@
                 </div>
             </div>
 
-
-
             <!-- Carrito -->
 
             <div class="carrito">
@@ -524,12 +532,14 @@
             <div class="logo-final">
                 <img src="{% static 'img/logo.png' %}" alt="House of Vape">
             </div>
+            <!--Suscribirse
             <div class="seccion-suscribir">
                 <input type="email" class="form-control" id="subs-email" placeholder="Juan@gmail.com" name="email" required>
-                <a href="#subbtt"> <!--Ruta a la que lleva el icono-->
+                <a href="#subbtt"> 
                     <img src="{% static 'img/suscribirse.png' %}" alt="icono-cuenta">
                 </a>
             </div>
+            -->
         </div>
         <div>
             <p class="text-caption">
