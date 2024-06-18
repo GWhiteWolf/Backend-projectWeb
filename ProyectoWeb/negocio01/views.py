@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .models import Producto, Marca
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from .forms import MarcaForm, UserRegistrationForm
@@ -49,6 +49,8 @@ def register(request):
     return render(request, 'registration/register.html', {'form': form})
 
 
+@login_required
+@permission_required('negocio01.add_producto', raise_exception=True)
 def productosAdd(request):
     if request.method != "POST":
         marca = Marca.objects.all()
@@ -76,6 +78,8 @@ def productosAdd(request):
         return render(request, 'negocio01/productos_add.html', context)
     
 
+@login_required
+@permission_required('negocio01.delete_producto', raise_exception=True)
 def productos_del(request, pk):
     context = {}
     try:
@@ -91,7 +95,7 @@ def productos_del(request, pk):
         context = {'productos': productos, 'mensaje': mensaje}  
         return render(request, 'negocio01/productos_list.html', context)
 
-    
+@login_required
 def productos_findEdit(request, pk):
     if pk != "":
         try:
@@ -109,7 +113,8 @@ def productos_findEdit(request, pk):
             context = {'mensaje': 'Producto no encontrado'}
             return render(request, 'negocio01/productos_edit.html', context)
 
-
+@login_required
+@permission_required('negocio01.change_producto', raise_exception=True)
 def productosUpdate(request):
     if request.method == "POST":
         id_producto = request.POST.get("id_producto")
@@ -140,13 +145,15 @@ def productosUpdate(request):
         return render(request, 'negocio01/productos_list.html', context)
 
 
-
+@login_required
 def crud_marca(request):
     marcas = Marca.objects.all()
     context = {'marcas': marcas}
     print("enviando datos marcas_list")
     return render(request, 'negocio01/marcas_list.html', context)
 
+@login_required
+@permission_required('negocio01.add_marca', raise_exception=True)
 def marcasAdd(request):
     context = {}
 
@@ -165,6 +172,8 @@ def marcasAdd(request):
         return render(request, 'negocio01/marcas_add.html', context)
     
 
+@login_required
+@permission_required('negocio01.delete_marca', raise_exception=True)
 def marcas_del(request, pk):
     mensajes = []
     errores = []
@@ -183,6 +192,8 @@ def marcas_del(request, pk):
         context = {'marcas': marcas, 'mensaje': mensaje}
         return render(request, 'negocio01/marcas_list.html', context)
     
+@login_required
+@permission_required('negocio01.change_marca', raise_exception=True)
 def marcas_edit(request, pk):
     try:
         marca = Marca.objects.get(id_marca=pk)

@@ -34,6 +34,9 @@
             {% endfor %}
         {% endif %}
     </table>
+    <button type="button">
+        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver a la Página Principal</a>
+    </button>
     <script>
         $(document).ready(function(){
             $("#idMensajes").delay(2000).fadeOut("slow");
