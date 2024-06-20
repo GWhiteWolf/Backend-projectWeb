@@ -25,3 +25,8 @@ class UserRegistrationForm(forms.ModelForm):
             user.save()
             
         return user
+    
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = MensajeContacto
+        fields = ['email','asunto','mensaje']

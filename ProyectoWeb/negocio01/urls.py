@@ -14,7 +14,7 @@ urlpatterns = [
     path('marcasAdd', views.marcasAdd, name='marcasAdd'),
     path('marcas_del/<str:pk>/', views.marcas_del, name='marcas_del'),
     path('marcas_edit/<str:pk>/', views.marcas_edit, name='marcas_edit'),
-
+    path('contactanos', views.contactanos, name='contactanos'),
     path('register/', views.register, name='register'),
     
 ]

@@ -4,7 +4,7 @@ from .models import Producto, Marca
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
-from .forms import MarcaForm, UserRegistrationForm
+from .forms import MarcaForm, UserRegistrationForm, ContactForm
 from django.contrib.auth import views as auth_views
 
 
@@ -26,7 +26,9 @@ def menu(request):
     context = {'usuario': usuario}
     return render(request, 'negocio01/index.html', context)
 
-
+def contactanos(request):
+    context = {'contantanos': contactanos}
+    return render(request, 'negocio01/contactanos.html', context)
 
 def register(request):
     if request.method == 'POST':
@@ -215,3 +217,13 @@ def marcas_edit(request, pk):
         mensaje = 'Error al editar marca'
         context = {'marcas': marcas, 'mensaje': mensaje}
         return render(request, 'negocio01/marcas_list.html', context)
+
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ContactForm()
+
+    return render(request, 'contact.html', {'form': form})

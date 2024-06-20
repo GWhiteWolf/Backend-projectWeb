@@ -220,7 +220,11 @@ body {
     width: 50%;
     height: 100%;
 }
-
+.div-100{
+    width: 100%;
+    height: 85.1vh;
+    background-color: black;
+}
 #crsl {
     max-width: 30%; 
     margin: auto; 
