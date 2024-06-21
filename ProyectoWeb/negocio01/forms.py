@@ -2,6 +2,7 @@ from django import forms
 from .models import MensajeContacto, Venta, DetalleVenta, Marca, UserProfile
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+from django.core.validators import EmailValidator
 
 # Register your models here.
 
@@ -29,4 +30,5 @@ class UserRegistrationForm(forms.ModelForm):
 class ContactForm(forms.ModelForm):
     class Meta:
         model = MensajeContacto
-        fields = ['email','asunto','mensaje']
+        fields = ['email', 'asunto', 'mensaje']
+        email = forms.EmailField(validators=[EmailValidator(message="Ingresa un correo electrónico válido.")])

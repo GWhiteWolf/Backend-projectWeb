@@ -232,33 +232,6 @@ function hacerVisibleCarrito(){
 
 /*fin de la funciones de carrito*/
 
-
-
-
-
-
-/*inicio del form de contacto*/
-
-const contactanosLink = document.querySelector('a[href="#contactanos"]');/*almacena en una variable el link de contactanos*/
-const modal1 = document.querySelector('.modal1');/*almacena en una variable la clase modal1*/
-const salirbuttonLink1 = document.querySelector('a[href="#salirbutton1"]');/*almacena en una variable el link del icono de salir*/
-
-contactanosLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal1.classList.add('modal1--show');
-});/*al hacer click en contactanos muestra el form*/
-
-salirbuttonLink1.addEventListener('click', (e) => {
-    e.preventDefault();
-    modal1.classList.remove('modal1--show');
-});/*al hacer click en la x sale del form de contactanos*/
-
-/*fin del form de contactanos*/
-
-
-
-
-
 /*
     inicio del form de ingresar
 
@@ -314,14 +287,6 @@ salirbuttonLink1.addEventListener('click', (e) => {
 
 /*se crean variables para un usuario*/ 
 
-function crearusuario(){
-    let regcorreo = document.getElementById("reg-correo").value;
-    let regclave = document.getElementById("reg-clave").value;
-    let regnombre = document.getElementById("reg-nombre").value;
-    let regapellido = document.getElementById("reg-apellido").value;
-    let regdireccion = document.getElementById("reg-direccion").value;
-    alert(regcorreo);
-}
 
 document.querySelector('.seccion-suscribir a[href="#subbtt"]').addEventListener("click", function(event) {
     event.preventDefault(); // Evitar que el enlace realice su acción predeterminada (navegar a otra página)

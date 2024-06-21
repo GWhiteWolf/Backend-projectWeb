@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
-from .models import Producto, Marca
+from .models import Producto, Marca, MensajeContacto
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
@@ -20,15 +20,24 @@ def crud(request):
     context = {'productos': productos}
     return render(request, 'negocio01/productos_list.html', context)
 
+
+def contacto_add(request):
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            form = ContactForm()
+            return redirect('index')
+    else:
+        form = ContactForm()
+    context = {'form': form}
+    return render(request, 'negocio01/contacto_add.html', context)
+
 @login_required
 def menu(request):
     usuario = request.user
     context = {'usuario': usuario}
     return render(request, 'negocio01/index.html', context)
-
-def contactanos(request):
-    context = {'contantanos': contactanos}
-    return render(request, 'negocio01/contactanos.html', context)
 
 def register(request):
     if request.method == 'POST':
@@ -217,13 +226,3 @@ def marcas_edit(request, pk):
         mensaje = 'Error al editar marca'
         context = {'marcas': marcas, 'mensaje': mensaje}
         return render(request, 'negocio01/marcas_list.html', context)
-
-def contact_view(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = ContactForm()
-
-    return render(request, 'contact.html', {'form': form})

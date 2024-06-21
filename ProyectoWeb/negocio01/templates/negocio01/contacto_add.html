@@ -35,11 +35,11 @@
             <div class="header-div2">
                 <div class="texto-boton" id="header-nav">
                     <nav class="texto-boton-ini">
-                        <a class="a-unestyled" href="#inicio-destacados" >INICIO</a>
-                        <a class="a-unestyled" href="#sobre-nosotros" >NOSOTROS</a>
-                        <a class="a-unestyled" href="#seccion-producto" >TIENDA</a>
-                        <a class="a-unestyled" href="#informaciones" >INFORMACIONES</a>
-                        <a class="a-unestyled" href="#contactanos" >CONTACTO</a>
+                        <a class="a-unestyled" href="{% url 'index' %}" >INICIO</a>
+                        <a class="a-unestyled" href="{% url 'index' %}" >NOSOTROS</a>
+                        <a class="a-unestyled" href="{% url 'index' %}" >TIENDA</a>
+                        <a class="a-unestyled" href="{% url 'index' %}" >INFORMACIONES</a>
+                        <a class="a-unestyled" href="{% url 'contacto_add' %}" >CONTACTO</a>
                     </nav>
                 </div>
             </div>
@@ -65,22 +65,60 @@
             </ul>
         </div>
     </header>
-    <div>
-        <form method="post">
-            {% csrf_token %}
-            <div class="mb-3">
-                {{ form.email.label_tag }}
-                {{ form.email }}
+    <!--<div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card shadow-sm p-4" style="max-width: 500px; width: 100%;">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Contactanos</h2>
+                <form action""  method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.email.label_tag }}
+                        {{ form.email}}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.asunto.label_tag }}
+                        {{ form.asunto}}
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form.mensaje.label_tag }}
+                        {{ form.mensaje}}
+                    </div>
+                    <br>
+                    <button type="submit">Enviar</button>
+                </form>
             </div>
-            <div class="mb-3">
-                {{ form.asunto.label_tag }}
-                {{ form.asunto }}
+        </div>
+    </div>-->
+
+    <div class="modal1_container">
+        <div class="modal--header">
+            <div class="div-registro" id="div-registroheader-exit">
             </div>
-            <div class="mb-3">
-                {{ form.mensaje.label_tag }}
-                {{ form.mensaje }}
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
+        </div>
+        <div class="modal--body">
+        <div class="div-registro" id="div-registroheader-text">
+            <h4 class="modal_title">¡CONTÁCTANOS!</h4>   
+        </div>
+        <div class="container mt-3">
+
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div class="mb-3 mt-3">
+                    <input type="email" class="form-control mb-4" id="cont-email" placeholder="Ingrese su correo" name="email" required>
+                    <input type="text" class="form-control mt-3" placeholder="Asunto" name="asunto" required>
+                    <br>
+                    <textarea class="form-control" rows="5" id="comment" name="mensaje" placeholder="Escriba su mensaje aquí"  required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+            
+        </div>
+        <p class="text-caption">¡Te responderemos a la brevedad!</a> </p>
+        </div>
+        
     </div>
+        
+</body>
 </html>

@@ -39,7 +39,7 @@
                         <a class="a-unestyled" href="#sobre-nosotros" >NOSOTROS</a>
                         <a class="a-unestyled" href="#seccion-producto" >TIENDA</a>
                         <a class="a-unestyled" href="#informaciones" >INFORMACIONES</a>
-                        <a class="a-unestyled" href="#contactanos" >CONTACTO</a>
+                        <a class="a-unestyled" href="{% url 'contacto_add' %}" >CONTACTO</a>
                     </nav>
                 </div>
             </div>
@@ -77,39 +77,6 @@
             <a href="#" class="modal_close">Si, soy mayor de 18 años. ENTRAR</a>
         </div>
     </section>
-    
-
-    <!--form de contactanos-->
-    <section class="modal1">
-        <div class="modal1_container">
-            <div class="modal--header">
-                <div class="div-registro" id="div-registroheader-exit">
-                    <a class="a-unestyled-imgs-usuario" href="#salirbutton1">
-                        <img src="{% static 'img/exitbutton.png' %}" alt="" id="exiticon">   
-                    </a>
-                </div>
-            </div>
-            <div class="modal--body">
-            <div class="div-registro" id="div-registroheader-text">
-                <h4 class="modal_title">¡CONTÁCTANOS!</h4>   
-            </div>
-            <div class="container mt-3">
-                <form action="{% url 'index' %}" method="get">
-                    <div class="mb-3 mt-3">
-                        <input type="email" class="form-control" id="cont-email" placeholder="Ingrese su correo" name="email" required>
-                        <input type="text" class="form-control mt-3" placeholder="Asunto" name="asunto" required>
-                        <br>
-                        <textarea class="form-control" rows="5" id="comment" name="mensaje" placeholder="Escriba su mensaje aquí"  required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-            </div>
-            <p class="text-caption">¡Te responderemos a la brevedad!</a> </p>
-            </div>
-            
-        </div>
-    </section>
-
     <!--form de iniciar seccion
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
         <div class="modal-dialog">
