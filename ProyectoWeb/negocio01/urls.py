@@ -16,5 +16,4 @@ urlpatterns = [
     path('marcas_edit/<str:pk>/', views.marcas_edit, name='marcas_edit'),
     path('contacto_add', views.contacto_add, name='contacto_add'),
     path('register/', views.register, name='register'),
-    
 ]

@@ -10,26 +10,48 @@
     <!-- Cargar estilos personalizados -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+<header>
+    <div class="header-container">
+        <div class="header-div">
+            <img src="{% static 'img/logo.png' %}" alt="House of Vape" id="header-logo">
+        </div>
+        <div class="header-div2">
+            <div class="texto-boton" id="header-nav">
+                <nav class="texto-boton-ini">
+                    <a class="a-unestyled" href="{% url 'index' %}" >INICIO</a>
+                    <a class="a-unestyled" href="{% url 'index' %}" >NOSOTROS</a>
+                    <a class="a-unestyled" href="{% url 'index' %}" >TIENDA</a>
+                    <a class="a-unestyled" href="{% url 'index' %}" >INFORMACIONES</a>
+                    <a class="a-unestyled" href="{% url 'contacto_add' %}" >CONTACTO</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
 <body class="bg-light">
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
-            <div class="card-body">
-                <h2 class="card-title text-center mb-4">Iniciar Sesión</h2>
-                <form method="post">
+    <div class="modal2_container">
+        <div class="modal--header">
+            <div class="div-registro" id="div-registroheader-exit">
+                <a class="a-unestyled-imgs-usuario" href="#salirbutton2">
+                    <img src="img/exitbutton.png" alt="" id="exiticon"> 
+                </a>
+            </div>
+        </div>
+        <div class="modal--body">
+            <div class="div-registro" id="div-registroheader-text">
+                <h4 class="modal_title">Iniciar Sesión</h4>  
+            </div>
+            <div class="container mt-3">
+                <form action="" method="POST">
                     {% csrf_token %}
-                    <div class="mb-3">
-                        {{ form.username.label_tag }}
-                        {{ form.username }}
+                    <div class="mb-3 mt-3">
+                        <input type="email" class="form-control" id="ini-email" placeholder="Ingresa Correo" name="email" required>
+                        <br>
+                        <input type="password" class="form-control" id="pwd" placeholder="Ingresa Contraseña" name="password" required>                      
                     </div>
-                    <div class="mb-3">
-                        {{ form.password.label_tag }}
-                        {{ form.password }}
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Iniciar Sesión</button>
+                    <button type="submit" class="btn-primary" id="btn-iniciar-sesion">Iniciar Sesión</button>
+                    <p class="text-caption">¿No tienes cuenta registrate? <a class="a-unestyled-2" href="{% url 'register' %}">Registrarse</a> </p>
                 </form>
-                <p class="mt-3 text-center">
-                    ¿No tienes cuenta? <a href="{% url 'register' %}">Regístrate aquí</a>
-                </p>
             </div>
         </div>
     </div>

@@ -31,4 +31,3 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = MensajeContacto
         fields = ['email', 'asunto', 'mensaje']
-        email = forms.EmailField(validators=[EmailValidator(message="Ingresa un correo electrónico válido.")])
