@@ -10,15 +10,42 @@
     <!-- Cargar estilos personalizados -->
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
+<header>
+    <div class="header-container">
+        <div class="header-div">
+            <img src="{% static 'img/logo.png' %}" alt="House of Vape" id="header-logo">
+        </div>
+        <div class="header-div2">
+            <div class="texto-boton" id="header-nav">
+                <nav class="texto-boton-ini">
+                    <a class="a-unestyled" href="{% url 'index' %}" >INICIO</a>
+                    <a class="a-unestyled" href="{% url 'index' %}" >NOSOTROS</a>
+                    <a class="a-unestyled" href="{% url 'index' %}" >TIENDA</a>
+                    <a class="a-unestyled" href="{% url 'index' %}" >INFORMACIONES</a>
+                    <a class="a-unestyled" href="{% url 'contacto_add' %}" >CONTACTO</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
 <body class="bg-light">
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
-            <div class="card-body">
-                <h2 class="card-title text-center mb-4">Registro</h2>
+    <div class="modal2_container">
+        <div class="modal--header">
+            <div class="div-registro" id="div-registroheader-exit">
+                <a class="a-unestyled-imgs-usuario" href="#salirbutton2">
+                    <img src="img/exitbutton.png" alt="" id="exiticon"> 
+                </a>
+            </div>
+        </div>
+        <div class="modal--body">
+            <div class="div-registro" id="div-registroheader-text">
+                <h4 class="modal_title">Registro</h4>  
+            </div>
+            <div class="container mt-3">
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary w-100">Registrar</button>
+                    <button type="submit" class="btn-primary" id="btn-registrar">Registrar</button>
                 </form>
                 {% if messages %}
                     <ul class="mt-3">

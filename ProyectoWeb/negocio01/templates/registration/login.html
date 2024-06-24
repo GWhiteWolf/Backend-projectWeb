@@ -44,10 +44,13 @@
             <div class="container mt-3">
                 <form action="" method="POST">
                     {% csrf_token %}
-                    <div class="mb-3 mt-3">
-                        <input type="email" class="form-control" id="ini-email" placeholder="Ingresa Correo" name="email" required>
-                        <br>
-                        <input type="password" class="form-control" id="pwd" placeholder="Ingresa Contraseña" name="password" required>                      
+                    <div class="mb-3">
+                        {{ form.username.label_tag }}
+                        {{ form.username }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.password.label_tag }}
+                        {{ form.password }}              
                     </div>
                     <button type="submit" class="btn-primary" id="btn-iniciar-sesion">Iniciar Sesión</button>
                     <p class="text-caption">¿No tienes cuenta registrate? <a class="a-unestyled-2" href="{% url 'register' %}">Registrarse</a> </p>
