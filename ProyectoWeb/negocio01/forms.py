@@ -3,6 +3,7 @@ from .models import MensajeContacto, Venta, DetalleVenta, Marca, UserProfile
 from django.contrib.auth.models import User
 from django.forms import ModelForm
 from django.core.validators import EmailValidator
+from django.contrib.auth.forms import AuthenticationForm
 
 # Register your models here.
 
@@ -11,6 +12,8 @@ class MarcaForm(ModelForm):
         model = Marca
         fields = "__all__"
 
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(label="Nombre de usuario o correo electrónico")
 
 class UserRegistrationForm(forms.ModelForm):
     direccion = forms.CharField(max_length=255, required=True, label="Dirección")

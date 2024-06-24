@@ -6,7 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from .forms import MarcaForm, UserRegistrationForm, ContactForm
 from django.contrib.auth import views as auth_views
-
+from .forms import LoginForm
 
 # Create your views here.
 
@@ -14,6 +14,26 @@ def index(request):
     productos = Producto.objects.all()  # Obtener todos los productos de la base de datos
     context = {'productos': productos}
     return render(request, 'negocio01/index.html', context)
+
+
+def custom_login(request):
+    if request.method == 'POST':
+        form = LoginForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+            else:
+                messages.error(request, 'Usuario o contraseña incorrectos.')
+        else:
+            messages.error(request, 'Usuario o contraseña incorrectos.')
+    else:
+        form = LoginForm()
+    return render(request, 'registration/login.html', {'form': form})
+
 
 def crud(request):
     productos = Producto.objects.all()  # Obtener todos los productos de la base de datos

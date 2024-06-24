@@ -1,6 +1,7 @@
 #from django.conf.urls import url
 from django.urls import path
 from . import views
+from .views import custom_login
 
 urlpatterns = [
     path('index', views.index, name='index'),
@@ -16,4 +17,5 @@ urlpatterns = [
     path('marcas_edit/<str:pk>/', views.marcas_edit, name='marcas_edit'),
     path('contacto_add', views.contacto_add, name='contacto_add'),
     path('register/', views.register, name='register'),
+    path('login/', custom_login, name='login'),
 ]

@@ -45,14 +45,14 @@
                 <form action="" method="POST">
                     {% csrf_token %}
                     <div class="mb-3">
-                        {{ form.username.label_tag }}
-                        {{ form.username }}
+                        <label for="id_username">Nombre de usuario o correo electrónico:</label>
+                        <input type="text" name="username" id="id_username" class="form-control">
                     </div>
                     <div class="mb-3">
-                        {{ form.password.label_tag }}
-                        {{ form.password }}              
+                        <label for="id_password">Contraseña:</label>
+                        <input type="password" name="password" id="id_password" class="form-control">
                     </div>
-                    <button type="submit" class="btn-primary" id="btn-iniciar-sesion">Iniciar Sesión</button>
+                    <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
                     <p class="text-caption">¿No tienes cuenta registrate? <a class="a-unestyled-2" href="{% url 'register' %}">Registrarse</a> </p>
                 </form>
             </div>
