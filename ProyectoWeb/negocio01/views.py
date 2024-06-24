@@ -68,11 +68,13 @@ def register(request):
             user_profile.direccion = form.cleaned_data.get('direccion')
             user_profile.save()
             username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
+            password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=password)
-            login(request, user)
-            messages.success(request, 'Usuario registrado correctamente. Bienvenido!')
-            return redirect('index')
+            if user is not None:
+                login(request, user)
+                return redirect('index')
+            else:
+                messages.error(request, 'Error al autenticar el usuario. Intente nuevamente.')
         else:
             messages.error(request, 'Error al registrar usuario. Intente nuevamente.')
     else:
