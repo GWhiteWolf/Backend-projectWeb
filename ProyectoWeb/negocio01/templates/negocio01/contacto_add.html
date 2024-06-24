@@ -70,23 +70,25 @@
             </div>
         </div>
         <div class="modal--body">
-        <div class="div-registro" id="div-registroheader-text">
-            <h4 class="modal_title">¡CONTÁCTANOS!</h4>   
-        </div>
-        <div class="container mt-3">
-            <form action="" method="POST">
-                {% csrf_token %}
-                <div class="mb-3 mt-3">
-                    <input type="email" class="form-control mb-4" id="cont-email" placeholder="Ingrese su correo" name="email" required>
-                    <input type="text" class="form-control mt-3" placeholder="Asunto" name="asunto" required>
-                    <br>
-                    <textarea class="form-control" rows="5" id="comment" name="mensaje" placeholder="Escriba su mensaje aquí"  required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
-        <p class="text-caption">¡Te responderemos a la brevedad!</a> </p>
+            <div class="div-registro" id="div-registroheader-text">
+                <h4 class="modal_title">¡CONTÁCTANOS!</h4>   
+            </div>
+            <div class="container mt-3">
+                <form id="contact-form" action="" method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3 mt-3">
+                        <input type="email" class="form-control mb-4" id="cont-email" placeholder="Ingrese su correo" name="email" required>
+                        <input type="text" class="form-control mt-3" placeholder="Asunto" name="asunto" required>
+                        <br>
+                        <textarea class="form-control" rows="5" id="comment" name="mensaje" placeholder="Escriba su mensaje aquí"  required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+            <p class="text-caption">¡Te responderemos a la brevedad!</p>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 </html>
