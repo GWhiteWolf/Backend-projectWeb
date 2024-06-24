@@ -14,7 +14,7 @@ function closeModalVerification() {
     sessionStorage.setItem('ageVerificationCompleted', 'true');
 }/*esta funcion cierra la ventana de verificacion de edad y le asigna a la variable ageVerificationComplete el valor de true*/
 
-closeButton.addEventListener('click', (e) => {
+closeButton?.addEventListener('click', (e) => {
     e.preventDefault(); 
     closeModalVerification();
 });/*si se hace click sobre el boton de soy mayor de 18 se llama a la funcion de closeModalVerification*/
@@ -65,7 +65,7 @@ function ready() {
         button.addEventListener('click', agregarAlCarritoClicked);
     }
 
-    document.getElementsByClassName('btn-pagar')[0].addEventListener('click', pagarClicked);
+    document.getElementsByClassName('btn-pagar')[0]?.addEventListener('click', pagarClicked);
 }    
 
 //Elimino el item seleccionado del carrito
@@ -232,100 +232,41 @@ function hacerVisibleCarrito(){
 
 /*fin de la funciones de carrito*/
 
-/*
-    inicio del form de ingresar
-
-    const usuariolink = document.querySelector('a[href="#session"]'); // almacena en una variable el link de iniciar session
-    const modal2 = document.querySelector('.modal2'); // almacena en una variable la clase modal2
-    const salirbuttonLink2 = document.querySelector('a[href="#salirbutton2"]'); // almacena en una variable el link del icono de salir
-
-    usuariolink.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal2.classList.add('modal2--show');
-    }); // al hacer click en la imagen de usuario se abre el form de inicio de sesión
-    salirbuttonLink2.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal2.classList.remove('modal2--show');
-    }); // al hacer click en la x cierra el form de inicio de sesion
-
-    fin del form de ingresar
-*/
 
 
 
 
-/*
-    inicio del form de registrarse
+//validacion de form de contactanos
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
 
-    const registratelink = document.querySelector('a[href="#registrarse"]'); // almacena en una variable el link de registrarse
-    const modal3 = document.querySelector('.modal3'); // almacena en una variable la clase modal3
-    const salirbuttonLink3 = document.querySelector('a[href="#salirbutton3"]'); // almacena en una variable el link del icono de salir
-    const tinescuentalink = document.querySelector('a[href="#session1"]');
-    
-    registratelink.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal2.classList.remove('modal2--show');
-        modal3.classList.add('modal3--show');
-    }); // al hacer click sobre registrarse cierra el form de inicio de sesion y abre el form de registrarse
-    
-    salirbuttonLink3.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal3.classList.remove('modal3--show');
-    }); // al hacer click sobre la x del form de registrarse cierra el form de registrarse
-    
-    tinescuentalink.addEventListener('click', (e) => {
-        e.preventDefault();
-        modal3.classList.remove('modal3--show');
-        modal2.classList.add('modal2--show');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Detener el envío del formulario por defecto
+        
+        // Ejemplo de validación de campo de correo electrónico utilizando la función validateEmail
+        const emailInput = form.querySelector('input[type="email"]');
+        const email = emailInput.value.trim();
+
+        if (email === '' || !validateEmail(email)) {
+            Swal.fire({
+                title : 'Error!',
+                text : 'Email ingresado no es valido!',
+                icon : 'error',
+            })
+            emailInput.focus(); // Poner el foco en el campo de correo electrónico
+            return;
+        }
+        Swal.fire({
+            title : 'Exito!',
+            text : 'Hemos recibido tu mensaje correctamente',
+            icon : 'success',
+        }).then((result)=>{
+            window.location.href="/index"
+        })
     });
 
-    fin del form de registro
-*/
-
-
-
-
-/*se crean variables para un usuario*/ 
-
-
-document.querySelector('.seccion-suscribir a[href="#subbtt"]').addEventListener("click", function(event) {
-    event.preventDefault(); // Evitar que el enlace realice su acción predeterminada (navegar a otra página)
-
-    var emailInput = document.getElementById('subs-email');
-    var email = emailInput.value.trim(); // Obtener el valor del campo de correo electrónico y quitar espacios en blanco al inicio y al final
-
-    if (email === "") { // Verificar si el campo está vacío
-        emailInput.style.borderColor = "red"; // Cambiar el color del borde a rojo
-        emailInput.style.color = "red"; // Cambiar el color del texto a rojo
-        emailInput.placeholder = " Ingrese correo"; // Cambiar el marcador de posición
-        emailInput.value = ""; // Vaciar el campo de entrada
-        return; // Detener la ejecución de la función
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(String(email).toLowerCase());
     }
-
-    // Expresión regular para validar el formato de correo electrónico
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (!emailRegex.test(email)) { // Verificar si el formato del correo electrónico es válido
-        emailInput.style.borderColor = "red"; // Cambiar el color del borde a rojo
-        emailInput.style.color = "red"; // Cambiar el color del texto a rojo
-        emailInput.placeholder = " Ingrese un correo válido"; // Cambiar el marcador de posición
-        emailInput.value = ""; // Vaciar el campo de entrada
-        return; // Detener la ejecución de la función
-    }
-    
-    // Si se ha ingresado un correo electrónico con el formato correcto, restablecer los estilos del campo de entrada
-    emailInput.removeAttribute('style'); // Eliminar los estilos CSS aplicados
-    emailInput.placeholder = "Juan@gmail.com"; // Restablecer el marcador de posición
-    emailInput.value = ""; // Vaciar el campo de entrada
-    window.location.reload();
-    alert('Ahora suscrito nuestras novedades!');
 });
-
-// Restablecer los estilos del campo de entrada cuando el usuario lo vuelve a enfocar
-document.getElementById('subs-email').addEventListener('focus', function() {
-    this.removeAttribute('style'); // Eliminar los estilos CSS aplicados
-    this.placeholder = "Juan@gmail.com"; // Restablecer el marcador de posición
-});
-
-
-
