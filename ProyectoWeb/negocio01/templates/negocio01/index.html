@@ -51,10 +51,10 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
                         {% if perms.negocio01.add_producto or perms.negocio01.change_producto or perms.negocio01.delete_producto %}
-                            <li><a class="dropdown-item" href="{% url 'crud' %}">CRUD Productos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'crud' %}">Lista de productos</a></li>
                         {% endif %}
                         {% if perms.negocio01.add_marca or perms.negocio01.change_marca or perms.negocio01.delete_marca %}
-                            <li><a class="dropdown-item" href="{% url 'crud_marcas' %}">CRUD Marcas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'crud_marcas' %}">Lista de marcas</a></li>
                         {% endif %}
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>
@@ -268,83 +268,6 @@
                             </div>
                         </div>
                         {% endfor %}
-
-
-                        <!-- Tarjeta 1 -->
-                        <div class="col-md-4">
-                            <div class="card d-flex flex-column align-items-center justify-content-center">
-                                <div class="card-body">
-                                    <img src="{% static 'img/producto-1.png' %}" class="card-img-top" alt="Producto 1">
-                                    <h5 class="card-title">Producto 1</h5>
-                                    <p class="card-text">$ 39.900</p>
-                                    <button class="button-item">Agregar al Carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tarjeta 2 -->
-                        <div class="col-md-4">
-                            <div class="card d-flex flex-column align-items-center justify-content-center">
-                                <div class="card-body">
-                                    <img src="{% static 'img/producto-2.png' %}" class="card-img-top" alt="Producto 2">
-                                    <h5 class="card-title">Producto 2</h5>
-                                    <p class="card-text">$ 44.900</p>
-                                    <button class="button-item">Agregar al Carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tarjeta 3 -->
-                        <div class="col-md-4">
-                            <div class="card d-flex flex-column align-items-center justify-content-center">
-                                <div class="card-body">
-                                    <img src="{% static 'img/producto-3.png' %}" class="card-img-top" alt="Producto 3">
-                                    <h5 class="card-title">Producto 3</h5>
-                                    <p class="card-text">$ 47.900</p>
-                                    <button class="button-item">Agregar al Carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                        
-                <div class="container">
-                    <div class="row">
-                        <!-- Tarjeta 4 -->
-                        <div class="col-md-4">
-                            <div class="card d-flex flex-column align-items-center justify-content-center">
-                                <div class="card-body">
-                                    <img src="{% static 'img/producto-4.png' %}" class="card-img-top" alt="Producto 4">
-                                    <h5 class="card-title">Producto 4</h5>
-                                    <p class="card-text">$ 32.900</p>
-                                    <button class="button-item">Agregar al Carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tarjeta 5 -->
-                        <div class="col-md-4">
-                            <div class="card d-flex flex-column align-items-center justify-content-center">
-                                <div class="card-body">
-                                    <img src="{% static 'img/producto-5.png' %}" class="card-img-top" alt="Producto 5">
-                                    <h5 class="card-title">Producto 5</h5>
-                                    <p class="card-text">$ 29.000</p>
-                                    <button class="button-item">Agregar al Carrito</button>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Tarjeta 6 -->
-                        <div class="col-md-4">
-                            <div class="card d-flex flex-column align-items-center justify-content-center">
-                                <div class="card-body">
-                                    <img src="{% static 'img/producto-6.png' %}" class="card-img-top" alt="Producto 6">
-                                    <h5 class="card-title">Producto 6</h5>
-                                    <p class="card-text">$ 39.900</p>
-                                    <button class="button-item">Agregar al Carrito</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
