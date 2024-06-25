@@ -5,44 +5,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Editar Datos de Productos</title>
+    <link rel="stylesheet" href="{% static 'crud-styles.css' %}">
 </head>
 <body>
-    <h1>Editar Datos de Productos</h1><br>
-    <br>
 
-    <button type="button">
-        <a href="{% url 'productosAdd' %}"> Agregar </a>
-    </button>
+    <div class="crud-form-container">
+        <h1>Editar Datos de Productos</h1><br>
 
-    <div id="idMensajes">
-        {% if mensaje %}
-            {{mensaje}}
-        {% endif %}
+        <div class="button-container">
+                <a href="{% url 'productosAdd' %}"><button>Agregar</button></a>
+                <a href="{% url 'index' %}"><button>Volver a la Página Principal</button></a>
+        </div>
+        <table>
+            {% if productos %}
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Imagen</th>
+                        <th>Eliminar</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for producto in productos %}
+                        <tr>
+                            <td>{{producto.id_producto}}</td>
+                            <td>{{producto.nombre}}</td>
+                            <td>{{producto.precio}}</td>
+                            <td><img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}"></td>
+                            <td><a href="{% url 'productos_del' pk=producto.id_producto %}">Eliminar</a></td>
+                            <td><a href="{% url 'productos_findEdit' pk=producto.id_producto %}">Editar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{mensaje}}
+            {% endif %}
+        </div>
     </div>
 
-    <table>
-        {% if productos %}
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Eliminar</th>
-                <th>Editar</th>
-            {% for producto in productos %}
-                <tr>
-                    <td>{{producto.id_producto}}</td>
-                    <td>{{producto.nombre}}</td>
-                    <td>{{producto.precio}}</td>
-                    <td><a href="{% url 'productos_del' pk=producto.id_producto %}">Eliminar</a></td>
-                    <td> <a href="{% url 'productos_findEdit' pk=producto.id_producto %}">Editar</a></td>
-                </tr>
-            {% endfor %}
-        {% endif %}
-    </table>
-    <button type="button">
-        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver a la Página Principal</a>
-    </button>
-    <script>"//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
             $("#idMensajes").delay(2000).fadeOut("slow");

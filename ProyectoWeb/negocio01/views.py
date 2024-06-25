@@ -167,9 +167,9 @@ def productosUpdate(request):
 
         producto.save()
 
+        messages.success(request, 'Producto actualizado correctamente.')
         marcas = Marca.objects.all()
-
-        context = {'mensaje': 'Producto actualizado', 'marcas': marcas}
+        context = {'producto': producto, 'marcas': marcas}
         return render(request, 'negocio01/productos_edit.html', context)
     
     else:

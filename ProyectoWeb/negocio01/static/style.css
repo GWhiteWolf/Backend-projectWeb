@@ -815,7 +815,19 @@ body {
     width: auto;
 }
 
+.custom-dropdown-menu {
+    background-color: #343a40;
+    color: #ffffff; 
+}
 
+.custom-dropdown-menu .dropdown-item {
+    color: #ffffff; 
+}
+
+.custom-dropdown-menu .dropdown-item:hover {
+    background-color: #495057; 
+    color: #fac62b; 
+}
 
 
 input:hover {
@@ -831,6 +843,47 @@ input:hover {
 #subs-email{
     padding: 0px;
 }
+
+
+.nav-link {
+    background-color: #6f2bc2;
+    color: #E5CB7E;
+    border: 2px solid #E5CB7E;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color .3s;
+    text-decoration: none; 
+    font-weight: bold; 
+    width: fit-content;
+}
+
+.nav-link:hover {
+    background-color: #b22b90; 
+    color: #fac62b;
+}
+
+
+/* Estilos para los enlaces dentro de .header-div2 */
+.header-div2 .a-unestyled {
+    color: #ffffff; /* Color del texto */
+    text-decoration: none; /* Quitar subrayado */
+    padding: 10px 15px; /* Añadir relleno */
+    transition: color .3s, background-color .3s; /* Transición suave */
+    font-weight: bold; /* Texto en negrita */
+    border-radius: 20px; /* Bordes redondeados */
+}
+
+/* Efecto hover para los enlaces */
+.header-div2 .a-unestyled:hover {
+    color: #E5CB7E; /* Cambia el color del texto al pasar el ratón */
+    background-color: #7c1bf349; /* Cambia el color de fondo al pasar el ratón */
+}
+
 
 
 

@@ -49,7 +49,7 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ user.username }}
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                    <ul class="dropdown-menu custom-dropdown-menu" aria-labelledby="navbarDropdown4">
                         {% if perms.negocio01.add_producto or perms.negocio01.change_producto or perms.negocio01.delete_producto %}
                             <li><a class="dropdown-item" href="{% url 'crud' %}">Lista de productos</a></li>
                         {% endif %}

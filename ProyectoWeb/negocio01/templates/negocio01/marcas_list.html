@@ -1,42 +1,51 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Lista de Marcas</title>
+    <link rel="stylesheet" href="{% static 'crud-styles.css' %}">
 </head>
 <body>
-    <h1>Editar marcas</h1><br><br>
-
-    <button type="button">
-        <a href="{% url 'marcasAdd' %}">Agregar</a>
-    </button>
-
-    <div id="idMensajes">
-        {% if mensaje %}
-            {{mensaje}}
-        {% endif %}
+    <div class="crud-form-container">
+        <h1>Editar Marcas</h1>
+        <div class="button-container">
+                <a href="{% url 'marcasAdd' %}"><button>Agregar</button></a>
+                <a href="{% url 'index' %}"><button>Volver a la Página Principal</button></a>
+        </div>
+        <div id="idMensajes">
+            {% if mensaje %}
+                {{ mensaje }}
+            {% endif %}
+        </div>
+        <table>
+            {% if marcas %}
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Marca</th>
+                        <th>Eliminar</th>
+                        <th>Editar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for marca in marcas %}
+                        <tr>
+                            <td>{{ marca.id_marca }}</td>
+                            <td>{{ marca.marca }}</td>
+                            <td><a href="{% url 'marcas_del' pk=marca.id_marca %}">Eliminar</a></td>
+                            <td><a href="{% url 'marcas_edit' pk=marca.id_marca %}">Editar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+        <div class="button-container">
+            <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver a la Página Principal</a>
+        </div>
     </div>
-    <table>
-        {% if marcas %}
-            <th>Id</th>
-            <th>Marca</th>
-            <th>Eliminar</th>
-            <th>Editar</th>
-            {% for marca in marcas %}
-                <tr>
-                    <td>{{marca.id_marca}}</td>
-                    <td>{{marca.marca}}</td>
-                    <td><a href="{% url 'marcas_del' pk=marca.id_marca %}">Eliminar</a></td>
-                    <td><a href="{% url 'marcas_edit' pk=marca.id_marca %}">Editar</a></td>
-                </tr>
-            {% endfor %}
-        {% endif %}
-    </table>
-    <button type="button">
-        <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver a la Página Principal</a>
-    </button>
     <script>
         $(document).ready(function(){
             $("#idMensajes").delay(2000).fadeOut("slow");

@@ -1,35 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Actualizar Marca</title>
+    <link rel="stylesheet" href="{% static 'crud-styles.css' %}">
 </head>
 <body>
-
-    <div style="text-align: center;">
-
+    <div class="crud-form-container">
         {% if marca %}
-            <h2>Formulario Actualizar Marcas</h2><br>
-
+            <h2>Formulario Actualizar Marcas</h2>
             <form action="" method="POST">
                 {% csrf_token %}
-
                 {{ form.as_table }}
                 <input type="submit" name="opcion" value="Actualizar">
-            
-            </form> <br><br>
-        
+            </form>
+            <div id="idMensajes">
+                {% if mensaje %}
+                    {{ mensaje }}
+                {% endif %}
+            </div>
+            <div class="button-container">
+                <a href="{% url 'crud_marcas' %}">Volver</a>
+            </div>
         {% endif %}
-        <div id="idMensajes">
-            {% if mensaje %}
-                {{ mensaje }}
-            {% endif %}
-        </div>
-        <br><br>
-        <a href="{% url 'crud_marcas' %}">Volver</a>
-            
     </div>
-    
 </body>
 </html>

@@ -1,24 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Actualizar Producto</title>
+    <link rel="stylesheet" href="{% static 'crud-styles.css' %}">
 </head>
 <body>
-    <div style=" text-align: center;">
-
+    <div class="crud-form-container">
         {% if producto %}
-            <h2>Formulario Actualizar Datos</h2><br>
-
+            <h2>Formulario Actualizar Datos</h2>
+            
             <form action="{% url 'productosUpdate' %}" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <input type="hidden" name="id_producto" value="{{ producto.id_producto }}">
                 <pre>Nombre:      <input type="text" name="nombre" value="{{producto.nombre}}"></pre>
                 <pre>Precio:      <input type="number" name="precio" value="{{producto.precio}}"></pre>
-                <pre>Imagen:      <input type="file" name="imagen" accept="imagen/*" value="{{producto.imagen}}"></pre>
+                <pre>Imagen:      <input type="file" name="imagen" accept="image/*"></pre>
                 <pre>Color:       <input type="text" name="color" value="{{producto.color}}"></pre>
-                <pre>Descripción: <textarea name="descripcion" rows="4" cols="50" value="{{producto.descripcion}}"></textarea></pre>
+                <pre>Descripción: <textarea name="descripcion" rows="4" cols="50">{{producto.descripcion}}</textarea></pre>
                 <pre>Marca: <select name="id_marca">
                                 {% for marca in marcas %}
                                     {% if marca.id_marca == producto.id_marca %}
@@ -28,19 +29,20 @@
                                     {% endif %}
                                 {% endfor %}
                             </select></pre>
-                    
 
-                <input type="submit" name="opcion" value="Actualizar">
-
-            </form><br><br>
-        {% endif %}
-            <div id="idMensajes">
-                {% if mensaje %}
-                    {{ mensaje }}
+                <input type="submit" name="opcion" value="Actualizar"> 
+                <div class="button-container">
+                    <a href="{% url 'crud' %}">Volver</a>
+                </div>
+                {% if messages %}
+                    <div id="idMensajes">
+                        {% for message in messages %}
+                            <div class="alert {{ message.tags }}">{{ message }}</div>
+                        {% endfor %}
+                    </div>
                 {% endif %}
-            </div>
-            <br><br>
-            <a href="{% url 'crud' %}">Volver</a>
+            </form>
+        {% endif %}
     </div>
 </body>
 </html>

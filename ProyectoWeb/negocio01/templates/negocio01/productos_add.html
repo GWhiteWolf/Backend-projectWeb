@@ -1,19 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario CRUD para Productos</title>
+    <link rel="stylesheet" href="{% static 'crud-styles.css' %}">
 </head>
 <body>
-    <div style=" text-align: center;">
-        <h2>Formulario CRUD para Productos</h2><br>
-        <form action="productosAdd" method="POST" enctype="multipart/form-data">
-
+    <div class="crud-form-container">
+        <h2>Formulario CRUD para Productos</h2>
+        <form id="addProductForm" action="{% url 'productosAdd' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <pre>Nombre:      <input type="text" name="nombre"></pre>
             <pre>Precio:      <input type="number" name="precio"></pre>
-            <pre>Imagen:      <input type="file" name="imagen" accept="imagen/*"></pre>
+            <pre>Imagen:      <input type="file" name="imagen" accept="image/*"></pre>
             <pre>Color:       <input type="text" name="color"></pre>
             <pre>Descripción: <textarea name="descripcion" rows="4" cols="50"></textarea></pre>
             <pre>Marca:       <select name="id_marca">
@@ -22,15 +23,36 @@
                                     {% endfor %}
                                 </select>
             </pre>
-            <input type="submit" name="opcion" value="Agregar">
-        </form><br><br>
-        <a href="{% url 'crud' %}">Volver</a>
-        <br>
+            <input type="submit" name="opcion" value="Agregar"> 
+            <div class="button-container">
+                <a href="{% url 'crud' %}">Volver</a>
+            </div>
+        </form>
+
         <div id="idMensajes">
-            {% if mensaje %}
-                {{ mensaje }}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }}">{{ message }}</div>
+                {% endfor %}
             {% endif %}
         </div>
     </div>
+
+    <script>
+        document.getElementById('addProductForm').addEventListener('submit', function(event) {
+            const nombre = document.querySelector('input[name="nombre"]').value;
+            const precio = document.querySelector('input[name="precio"]').value;
+            const imagen = document.querySelector('input[name="imagen"]').value;
+            const color = document.querySelector('input[name="color"]').value;
+            const descripcion = document.querySelector('textarea[name="descripcion"]').value;
+            const id_marca = document.querySelector('select[name="id_marca"]').value;
+
+            if (!nombre || !precio || !imagen || !color || !descripcion || !id_marca) {
+                alert('Todos los campos son obligatorios.');
+                event.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
+

@@ -1,0 +1,199 @@
+/* Fondo de la página */
+body {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilos para el contenedor del formulario CRUD en modo oscuro */
+.crud-form-container {
+    background-color: #2c2c2c;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    margin: 20px auto;
+    color: #e0e0e0;
+    text-align: left;
+}
+
+/* Estilos para el encabezado */
+h1 {
+    text-align: center;
+    color: #E5CB7E;
+}
+
+h2 {
+    text-align: center;
+    color: #E5CB7E;
+}
+
+/* Estilos para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+}
+
+table th, table td {
+    border: 1px solid #555;
+    padding: 8px; /* Ajuste de padding para un tamaño de fuente más pequeño */
+    text-align: left;
+    color: #e0e0e0;
+}
+
+table th {
+    background-color: #3c3c3c;
+    color: #E5CB7E;
+}
+
+table td {
+    background-color: #2c2c2c;
+}
+
+table tr:hover td {
+    background-color: #3c3c3c;
+}
+
+/* Estilos para las imágenes en la tabla */
+table td img {
+    width: 50px;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Estilos para botones */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #6f2bc2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #5a219d;
+}
+
+/* Estilos para enlaces dentro de la tabla */
+table td a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px; /* Tamaño de fuente más pequeño para enlaces */
+}
+
+table td a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para mensajes */
+#idMensajes {
+    margin-top: 20px;
+    color: #e74c3c;
+    text-align: center;
+}
+
+/* Estilos para los inputs y textareas en el formulario */
+.crud-form-container input[type="text"],
+.crud-form-container input[type="number"],
+.crud-form-container input[type="file"],
+.crud-form-container select,
+.crud-form-container textarea {
+    width: calc(100% - 130px);
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #3c3c3c;
+    color: #e0e0e0;
+    font-size: 16px;
+    box-sizing: border-box; /* Asegura que el padding y borde se incluyan en el ancho total */
+}
+
+.crud-form-container input[type="submit"] {
+    background-color: #6f2bc2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.crud-form-container input[type="submit"]:hover {
+    background-color: #5a219d;
+}
+
+.crud-form-container a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #9a67ea;
+    text-decoration: none;
+}
+
+.crud-form-container a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para el formulario pre */
+.crud-form-container pre {
+    font-size: 16px;
+    color: #e0e0e0;
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    white-space: normal;
+}
+
+
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+
+.alert-error {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
