@@ -18,6 +18,7 @@ urlpatterns = [
     path('contacto_add', views.contacto_add, name='contacto_add'),
     path('register/', views.register, name='register'),
     path('login/', custom_login, name='login'),
+    path('logout/', views.logout_view, name='logout'),
 
     path('crud_mensajes', views.crud_mensajes, name='crud_mensajes'),
     path('mensaje_del/<int:pk>/', views.mensaje_del, name='mensaje_del'),

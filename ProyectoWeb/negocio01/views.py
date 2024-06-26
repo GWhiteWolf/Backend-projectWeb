@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from .models import Producto, Marca, MensajeContacto
 from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from .forms import MarcaForm, UserRegistrationForm, ContactForm
 from django.contrib.auth import views as auth_views
@@ -15,6 +15,9 @@ def index(request):
     context = {'productos': productos}
     return render(request, 'negocio01/index.html', context)
 
+def logout_view(request):
+    logout(request)
+    return redirect('index')
 
 def custom_login(request):
     if request.method == 'POST':
