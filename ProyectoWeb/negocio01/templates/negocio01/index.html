@@ -49,12 +49,15 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ user.username }}
                     </a>
-                    <ul class="dropdown-menu custom-dropdown-menu" aria-labelledby="navbarDropdown4">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
                         {% if perms.negocio01.add_producto or perms.negocio01.change_producto or perms.negocio01.delete_producto %}
-                            <li><a class="dropdown-item" href="{% url 'crud' %}">Lista de productos</a></li>
+                            <li><a class="dropdown-item" href="{% url 'crud' %}">CRUD Productos</a></li>
                         {% endif %}
                         {% if perms.negocio01.add_marca or perms.negocio01.change_marca or perms.negocio01.delete_marca %}
-                            <li><a class="dropdown-item" href="{% url 'crud_marcas' %}">Lista de marcas</a></li>
+                            <li><a class="dropdown-item" href="{% url 'crud_marcas' %}">CRUD Marcas</a></li>
+                        {% endif %}
+                        {% if perms.negocio01.view_mensajedecontacto or perms.negocio01.delete_mensajedecontacto %}
+                            <li><a class="dropdown-item" href="{% url 'crud_mensajes' %}">CRUD Mensajes</a></li>
                         {% endif %}
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="{% url 'logout' %}">Cerrar Sesión</a></li>

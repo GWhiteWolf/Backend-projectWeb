@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes de Contacto</title>
+    <link rel="stylesheet" href="{% static 'crud-styles.css' %}">
+</head>
+<body>
+    <div class="crud-form-container">
+        <h1>Mensajes de Contacto</h1>
+        <div id="idMensajes">
+            {% if mensajes_eliminados %}
+                {% for message in mensajes_eliminados %}
+                    <div class="alert alert-success">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+            {% if errores %}
+                {% for error in errores %}
+                    <div class="alert alert-danger">{{ error }}</div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        <table>
+            {% if mensajes %}
+                <thead>
+                    <tr>
+                        <th>Asunto</th>
+                        <th>Email</th>
+                        <th>Mensaje</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mensaje in mensajes %}
+                        <tr>
+                            <td>{{ mensaje.asunto }}</td>
+                            <td>{{ mensaje.email }}</td>
+                            <td>{{ mensaje.mensaje }}</td>
+                            <td><a href="{% url 'mensaje_del' pk=mensaje.pk %}" class="btn btn-danger">Eliminar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+        <div class="button-container">
+            <a href="{% url 'index' %}" class="btn btn-secondary mt-3">Volver a la Página Principal</a>
+        </div>
+    </div>
+</body>
+</html>

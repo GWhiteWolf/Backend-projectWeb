@@ -248,3 +248,29 @@ def marcas_edit(request, pk):
         mensaje = 'Error al editar marca'
         context = {'marcas': marcas, 'mensaje': mensaje}
         return render(request, 'negocio01/marcas_list.html', context)
+    
+
+
+@login_required
+@permission_required('negocio01.view_mensajedecontacto', raise_exception=True)
+def crud_mensajes(request):
+    mensajes = MensajeContacto.objects.all()
+    context = {'mensajes': mensajes}
+    return render(request, 'negocio01/mensajes_list.html', context)
+
+@login_required
+@permission_required('negocio01.delete_mensajedecontacto', raise_exception=True)
+def mensaje_del(request, pk):
+    mensajes = []
+    errores = []
+    mensaje = get_object_or_404(MensajeContacto, pk=pk)
+    try:
+        mensaje.delete()
+        mensajes.append('Mensaje eliminado')
+    except Exception as e:
+        errores.append(str(e))
+
+    mensajes_list = MensajeContacto.objects.all()
+    context = {'mensajes': mensajes_list, 'mensajes_eliminados': mensajes, 'errores': errores}
+    return render(request, 'negocio01/mensajes_list.html', context)
+
