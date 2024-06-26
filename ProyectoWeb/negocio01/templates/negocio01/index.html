@@ -322,12 +322,15 @@
                 <div class="carrito-total">
                     <div class="fila">
                         <strong>Total</strong>
-                        <span class="carrito-precio-total">
-                            $ 100.000
-                        </span>
+                        <span class="carrito-precio-total">$ 100.000</span>
                     </div>
-                    <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+                    {% if user.is_authenticated %}
+                        <button class="btn-pagar">Pagar <i class="fa-solid fa-bag-shopping"></i></button>
+                    {% else %}
+                        <p>Para terminar tu compra necesitas <a href="{% url 'login' %}">Iniciar sesión</a>.</p>
+                    {% endif %}
                 </div>
+                
             </div>
 
         </div>
