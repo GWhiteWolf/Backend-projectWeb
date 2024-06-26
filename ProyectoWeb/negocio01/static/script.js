@@ -240,7 +240,7 @@ function hacerVisibleCarrito(){
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact-form');
 
-    form.addEventListener('submit', function(event) {
+    form?.addEventListener('submit', function(event) {
         event.preventDefault(); // Detener el envío del formulario por defecto
         
         // Ejemplo de validación de campo de correo electrónico utilizando la función validateEmail
@@ -249,20 +249,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (email === '' || !validateEmail(email)) {
             Swal.fire({
-                title : 'Error!',
-                text : 'Email ingresado no es valido!',
-                icon : 'error',
-            })
+                title: 'Error!',
+                text: 'Email ingresado no es valido!',
+                icon: 'error',
+            });
             emailInput.focus(); // Poner el foco en el campo de correo electrónico
             return;
         }
+
         Swal.fire({
-            title : 'Exito!',
-            text : 'Hemos recibido tu mensaje correctamente',
-            icon : 'success',
-        }).then((result)=>{
-            window.location.href="/index"
-        })
+            title: 'Exito!',
+            text: 'Hemos recibido tu mensaje correctamente',
+            icon: 'success',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                form.submit(); // Enviar el formulario
+            }
+        });
     });
 
     function validateEmail(email) {
